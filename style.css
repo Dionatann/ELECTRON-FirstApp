@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  #taskForm {
+    margin-bottom: 20px;
+  }
+  
+  #taskInput {
+    padding: 10px;
+    font-size: 16px;
+    width: 200px;
+  }
+  
+  button {
+    padding: 10px;
+    margin: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin: 10px;
+    background-color: #e7e7e7;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  button {
+    background-color: #f44336;
+  }
+  
+  button:hover {
+    background-color: #da190b;
+  }
+  

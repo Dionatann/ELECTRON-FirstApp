@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD em Electron</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>CRUD - Lista de Tarefas</h1>
+
+  <form id="taskForm">
+    <input type="text" id="taskInput" placeholder="Digite a tarefa" required />
+    <button type="submit">Adicionar Tarefa</button>
+  </form>
+
+  <ul id="taskList"></ul>
+
+  <script>
+    const taskForm = document.getElementById('taskForm');
+    const taskInput = document.getElementById('taskInput');
+    const taskList = document.getElementById('taskList');
+
+    let tasks = [];
+
+    const renderTasks = () => {
+      taskList.innerHTML = '';
+      tasks.forEach((task, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          ${task} 
+          <button onclick="editTask(${index})">Editar</button>
+          <button onclick="deleteTask(${index})">Excluir</button>
+        `;
+        taskList.appendChild(li);
+      });
+    };
+
+    taskForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (taskInput.value.trim()) {
+        tasks.push(taskInput.value.trim());
+        taskInput.value = '';
+        renderTasks();
+      }
+    });
+
+    const editTask = (index) => {
+      const newTask = prompt('Edite a tarefa:', tasks[index]);
+      if (newTask !== null) {
+        tasks[index] = newTask;
+        renderTasks();
+      }
+    };
+
+    const deleteTask = (index) => {
+      if (confirm('Tem certeza de que deseja excluir esta tarefa?')) {
+        tasks.splice(index, 1);
+        renderTasks();
+      }
+    };
+
+    renderTasks();
+  </script>
+</body>
+</html>
